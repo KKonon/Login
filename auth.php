@@ -1,13 +1,9 @@
 <?php
-function auth_check($login, $password) : bool{
-    $users = require __DIR__ .'/config.ini';
+function auth_check($form_login, $form_password) : bool{
+    require __DIR__ .'/config.php';
 
-    foreach($users as $user){
-        if($login === $user['login'] && $password === $user['password']){
-            return true;
-        } 
-    }
 
+    if (password_verify($form_login, $login) && password_verify($form_password, $password)) return true;
     return false;
 }
 

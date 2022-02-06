@@ -5,8 +5,8 @@ if(!empty($_POST)){
     $password = $_POST['password'];
 
     if(auth_check($login, $password)){
-        setcookie('login',$login, time() +1800);
-        setcookie('password', $password, time() +1800);
+        setcookie('login', time() +1800);
+        setcookie('password', time() +1800);
 
         header('Location: /index.php');
     } else {
